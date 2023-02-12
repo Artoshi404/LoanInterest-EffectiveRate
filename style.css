@@ -1,0 +1,205 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+/* Custom Properties */
+:root {
+  --light-color: #e8e9eb;
+  --light-color-alt: #909daa;
+  --primary-borntodev-color: #febf00;
+  --secondary-borntodev-color: #c8b607;
+  --primary-background-color: #161c24;
+  --secondary-background-color: #212636;
+  --hover-light-color: var(--light-color);
+  --hover-dark-color: var(--primary-background-color);
+  --gradient-color: linear-gradient(
+    90deg,
+    #eedc9a,
+    #e9d9a0,
+    #febf00,
+    #c8b607,
+    #b0771d
+  );
+  --transparent-light-color: rgba(182, 135, 135, 0.05);
+  --transparent-dark-color: rgba(0, 0, 0, 0.75);
+  --font-family: "Prompt", sans-serif;
+  --font-size-xsm: 1.2rem;
+  --font-size-sm: 1.6rem;
+  --font-size-md: 2.4rem;
+  --font-size-lg: 3rem;
+  --font-size-xl: 4rem;
+  --gap: 2rem;
+  --margin-sm: 2rem;
+  --margin-md: 3rem;
+  --item-min-height-sm: 20rem;
+  --item-min-height-md: 30rem;
+}
+
+/* Base CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xsm);
+  font-weight: 500;
+  color: var(--light-color-alt);
+  background-color: var(--primary-background-color);
+  letter-spacing: 1px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+input,
+button {
+  font: inherit;
+  color: var(--primary-borntodev-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background: var(--light-color-alt);
+  outline: none;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  gap: 5px;
+}
+
+/* button:disabled {
+  background-color: #3d3d3d !important;
+} */
+
+i {
+  font-size: var(--font-size-sm);
+}
+
+/* Dark & Light Mode */
+body.light-mode {
+  --light-color: #3d3d3d;
+  --light-color-alt: rgba(0, 0, 0, 0.6);
+  --primary-background-color: #e8e9eb;
+  --secondary-background-color: #f1f1f1;
+  --hover-light-color: #fff;
+  --transparent-dark-color: var(--secondary-background-color);
+  --transparent-light-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Reusable classes */
+.container{
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.place-items-center{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-grid{
+  display: grid;
+}
+
+.screen-sm-hidden{
+  display: none;
+}
+
+/* Custom Button Glowing */
+.glow-on-hover {
+    padding: 10px 25px;
+    color: var(--primary-borntodev-color);
+    border: none;
+    outline: none;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+
+}
+
+/* Custom Interest Effective Rate (form) */
+.interest-effective {
+    /*   height: 100vh; */
+      flex-direction: column;
+    }
+    
+    .card-effective {
+      width: 100%;
+      background-color: var(--secondary-background-color);
+      text-align: center;
+    }
+    
+    .card-effective form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 0px;  
+    }
+    
+    #result-effective {
+      text-align: end;
+      padding: 5px 15px 20px;
+    }
